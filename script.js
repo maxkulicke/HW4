@@ -92,7 +92,13 @@ $(document).ready(function () {
   });
 
   function quizRunner(difficultyArray) {
-    var secondsLeft = 10 * difficultyArray.length;
+    // these three are mostly for restarts of quiz runner
+    $("#timer").text("Time Remaining");
+    $("#timer").show();
+    $(".answer").show();
+
+    // timer section
+    var secondsLeft = 10 * difficultyArray.length - 1;
     var timerInterval = setInterval(function() {
       $("#timer").text(secondsLeft)
       secondsLeft--;
@@ -101,17 +107,29 @@ $(document).ready(function () {
         clearInterval(timerInterval);
       }
     }, 1000);
+
+    // question throw/display/checkAnswer
     var currentQuestion = difficultyArray[index];
     questionThrower(currentQuestion);
     $(".answer").on("click", function () {
       var answerId = event.target.id;
-      checkAnswer(currentQuestion[answerId]);
+      var correct = checkAnswer(currentQuestion[answerId]);
+      if (correct === "true") {
+        score++;
+      } else {
+        secondsLeft = decrement(secondsLeft);
+        score = secondsLeft;
+      }
       index++;
+
+      // end of quiz section
       if (index < difficultyArray.length) {
         currentQuestion = difficultyArray[index];
         questionThrower(currentQuestion);
       }
       else {
+        clearInterval(timerInterval);
+        $("#timer").hide();
         scoreboard();
       }
     });
@@ -131,31 +149,23 @@ $(document).ready(function () {
     }
     else {
       $("#question").text("Your Score is: " + score);
-      // $(".answer").hide();
-      // $("#2").empty();
-      // $("#3").empty();
-      // $("#4").empty();
     }
   }
 
   function checkAnswer(answer) {
     var correct = answer.correct;
-    if (correct === "true") {
-      score++;
-    } else {
-      decrement();
-    }
-    console.log(score);
     return correct;
   }
 
-  function decrement() {
+  function decrement(secondsLeft) {
     console.log("wrong answer");
-    // something to decrement the clock here
+    secondsLeft -= 5;
+    return secondsLeft;
   }
 
   function scoreboard() {
     display("scoreboard");
+    $(".answer").hide();
     index = 0;
   }
 
