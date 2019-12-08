@@ -77,7 +77,7 @@ $(document).ready(function () {
 
   // important to declare globally, will be incremented/interacted with by multiple functions
   var index = 0;
-  var score = 0;
+  score = 0;
 
   $("#easy").on("click", function () {
     quizRunner(easyQuiz);
@@ -92,6 +92,15 @@ $(document).ready(function () {
   });
 
   function quizRunner(difficultyArray) {
+    var secondsLeft = 10 * difficultyArray.length;
+    var timerInterval = setInterval(function() {
+      $("#timer").text(secondsLeft)
+      secondsLeft--;
+      score = secondsLeft;
+      if(secondsLeft === 0) {
+        clearInterval(timerInterval);
+      }
+    }, 1000);
     var currentQuestion = difficultyArray[index];
     questionThrower(currentQuestion);
     $(".answer").on("click", function () {
@@ -122,10 +131,10 @@ $(document).ready(function () {
     }
     else {
       $("#question").text("Your Score is: " + score);
-      $("#1").empty();
-      $("#2").empty();
-      $("#3").empty();
-      $("#4").empty();
+      // $(".answer").hide();
+      // $("#2").empty();
+      // $("#3").empty();
+      // $("#4").empty();
     }
   }
 
@@ -147,7 +156,6 @@ $(document).ready(function () {
 
   function scoreboard() {
     display("scoreboard");
-    score = 0;
     index = 0;
   }
 
