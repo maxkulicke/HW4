@@ -74,19 +74,19 @@ var hard3 = [hQuestion3, hAns3a, hAns3b, hAns3c, hAns3d];
 var hardQuiz = [hard1, hard2, hard3];
 
 // Top 5 Scores, local storage
-localStorage.setItem("rank1", "");
-localStorage.setItem("rank2", "");
-localStorage.setItem("rank3", "");
-localStorage.setItem("rank4", "");
-localStorage.setItem("rank5", "");
+localStorage.setItem("score1", "");
+localStorage.setItem("score2", "");
+localStorage.setItem("score3", "");
+localStorage.setItem("score4", "");
+localStorage.setItem("score5", "");
 
-var rank1 = localStorage.getItem("rank1");
-var rank2 = localStorage.getItem("rank2");
-var rank3 = localStorage.getItem("rank3");
-var rank4 = localStorage.getItem("rank4");
-var rank5 = localStorage.getItem("rank5");
+var score1 = localStorage.getItem("score1");
+var score2 = localStorage.getItem("score2");
+var score3 = localStorage.getItem("score3");
+var score4 = localStorage.getItem("score4");
+var score5 = localStorage.getItem("score5");
 
-var top5ranks = [rank1, rank2, rank3, rank4, rank5];
+var top5scores = [score1, score2, score3, score4, score5];
 
 localStorage.setItem("name1", "");
 localStorage.setItem("name2", "");
@@ -215,55 +215,56 @@ $(document).ready(function () {
     $("#goToHallOfFame").show();
     index = 0;
     console.log("scoreboard turned index into: " + index);
-    // top5ranks.forEach(function (rank) {
-    //   if (score > rank) {
-    //     hallOfFame(score);
-    //   }
-    // });
+    if (checkForHighScore(score)) {
+      display("Hall of Fame");
+    }
   }
 
-  function hallOfFame(score) {
-    display("Hall of Fame");
-    for (var i = 0; i < top5ranks.length; i++) {
-      var currentScore = parseInt(top5ranks[i]);
-      if (score > currentScore) {
-        // score entry loop
-        var replacer = score;
-        for (var j = i; j < top5ranks.length; j++) {
-          replacee = top5ranks[j];
-          top5ranks[j] = replacer;
-          replacer = replacee;
-        }
-        localStorage.setItem("rank1", top5ranks[0]);
-        localStorage.setItem("rank2", top5ranks[1]);
-        localStorage.setItem("rank3", top5ranks[2]);
-        localStorage.setItem("rank4", top5ranks[3]);
-        localStorage.setItem("rank5", top5ranks[4]);
+  function checkForHighScore(score) {
+    top5scores.forEach(function (oldScore) {
+      if (score > oldScore) {
+        return true;
       }
+    });
+  }
+
+  
+  $("#nameSubmit").on("click", function() {
+    var name = document.querySelector('#nameSubmit').value;
+    hallOfFame(name);
+  })
+
+  function hallOfFame(name) {
+    // put all of this into click function?
+    for (var i = 0; i < top5scores.length; i++) {
+      var oldScore = parseInt(top5scores[i]);
+      if (score > oldScore) {
+        // score entry loop
+        var scoreReplacer = score;
+        var nameReplacer = name;
+        for (var j = i; j < top5scores.length; j++) {
+          scoreReplacee = top5scores[j];
+          nameReplacee = top5names[j];
+          top5scores[j] = scoreReplacer;
+          top5names[j] = nameReplacer;
+          scoreReplacer = scoreReplacee;
+          nameReplacer = nameReplacee;
+        }
+        localStorage.setItem("score1", top5scores[0]);
+        localStorage.setItem("name1", top5names[0]);
+        localStorage.setItem("score2", top5scores[1]);
+        localStorage.setItem("name2", top5names[1]);
+        localStorage.setItem("score3", top5scores[2]);
+        localStorage.setItem("name3", top5names[2]);
+        localStorage.setItem("score4", top5scores[3]);
+        localStorage.setItem("name4", top5names[3]);
+        localStorage.setItem("score5", top5scores[4]);
+        localStorage.setItem("name5", top5names[4]);
+      }
+    }
+    for (var i = 0; i < top5scores.length; i++) {
+      console.log(top5names[i]);
+      console.log(top5scores[i]);
     }
   }
 })
-
-    // function showDifficultyModal() {
-    //   $("#difficultyModal").show();
-    // }
-
-    // function hideDifficultyModal() {
-    //   $("#difficultyModal").hide();
-    // }
-
-    // function showQuestionModal() {
-    //   $("#questionModal").show();
-    // }
-
-    // function hideQuestionModal() {
-    //   $("#questionModal").hide();
-    // }
-
-    // function showHallOfFameModal() {
-    //   $("#hallOfFameModal").show();
-    // }
-
-    // function hideHallOfFameModal() {
-    //   $("#hallOfFameModal").hide();
-    // }

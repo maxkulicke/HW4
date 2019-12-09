@@ -67,17 +67,27 @@
           <div class="card-body">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h5 class="card-title" id="timer">Hall of Fame</h5>
-            <h6 class="card-subtitle mb-2 text-muted" id="enterName">Enter Your Name!</h6>
-            <div class="form-group">
-              <label for="hallOfFameEntry">Your Name</label>
-              <input type="name" class="form-control" id="name">
-            </div>
-            <button type="submit" class="btn btn-primary" id="submit" onclick>Submit</button>
+            <textarea class="form-control" rows="5" id="top5Display"></textarea>
             <p id="rank1"></p>
             <p id="rank2"></p>
             <p id="rank3"></p>
             <p id="rank4"></p>
             <p id="rank5"></p>
+            <h6 class="card-subtitle mb-2 text-muted" id="enterName">Enter Your Name!</h6>
+            <div class="form-group">
+              <label for="hallOfFameEntry">Your Name</label>
+              <input type="name" class="form-control" id="name">
+            </div>
+            <button type="submit" class="btn btn-primary" id="nameSubmit">Submit</button>
+            <br>
+            <br>
+            <br>
+            <!-- nav to home button -->
+            <button type="submit" class="btn btn-primary" id="home" onclick>Home</button>
+            <!-- back to difficulty modal button -->
+            <button type="submit" class="btn btn-primary" id="playAgain" data-toggle="modal"
+              data-target="#difficultyModal">Play Again!</button>
+
           </div>
         </div>
       </div>
