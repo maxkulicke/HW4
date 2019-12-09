@@ -73,13 +73,6 @@ var hard3 = [hQuestion3, hAns3a, hAns3b, hAns3c, hAns3d];
 
 var hardQuiz = [hard1, hard2, hard3];
 
-// Top 5 Scores, local storage
-// localStorage.setItem("score1", "");
-// localStorage.setItem("score2", "");
-// localStorage.setItem("score3", "");
-// localStorage.setItem("score4", "");
-// localStorage.setItem("score5", "");
-
 var score1 = localStorage.getItem("score1");
 var score2 = localStorage.getItem("score2");
 var score3 = localStorage.getItem("score3");
@@ -88,12 +81,6 @@ var score5 = localStorage.getItem("score5");
 
 var top5scores = [score1, score2, score3, score4, score5];
 
-// localStorage.setItem("name1", "");
-// localStorage.setItem("name2", "");
-// localStorage.setItem("name3", "");
-// localStorage.setItem("name4", "");
-// localStorage.setItem("name5", "");
-
 var name1 = localStorage.getItem("name1");
 var name2 = localStorage.getItem("name2");
 var name3 = localStorage.getItem("name3");
@@ -101,10 +88,6 @@ var name4 = localStorage.getItem("name4");
 var name5 = localStorage.getItem("name5");
 
 var top5names = [name1, name2, name3, name4, name5];
-
-for (var i = 0; i < top5names.length; i++) {
-  // console.log(top5names[i] + top5scores[i]);
-}
 
 $(document).ready(function () {
 
@@ -258,25 +241,21 @@ $(document).ready(function () {
           scoreReplacer = scoreReplacee;
           nameReplacer = nameReplacee;
         }
+
         localStorage.setItem("score1", top5scores[0]);
         localStorage.setItem("name1", top5names[0]);
-        // $("#rank1").text(top5names[0] + " " + top5scores[0]);
 
         localStorage.setItem("score2", top5scores[1]);
         localStorage.setItem("name2", top5names[1]);
-        // $("#rank2").text(top5names[1] + " " + top5scores[1]);
 
         localStorage.setItem("score3", top5scores[2]);
         localStorage.setItem("name3", top5names[2]);
-        // $("#rank3").text(top5names[2] + " " + top5scores[2]);
 
         localStorage.setItem("score4", top5scores[3]);
         localStorage.setItem("name4", top5names[3]);
-        // $("#rank4").text(top5names[3] + " " + top5scores[3]);
 
         localStorage.setItem("score5", top5scores[4]);
         localStorage.setItem("name5", top5names[4]);
-        // $("#rank5").text(top5names[4] + " " + top5scores[4]);
 
         hallOfFameDisplay();
 
