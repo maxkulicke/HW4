@@ -183,6 +183,7 @@ $(document).ready(function () {
       $("#question").text("Your Score is: " + score);
     }
     else if (question === "Hall of Fame") {
+      hallOfFameDisplay();
       $("#question").hide();
       $("#1").hide();
       $("#2").hide();
@@ -232,6 +233,7 @@ $(document).ready(function () {
     });
   }
 
+  $("#goToHallOfFame").on("click", hallOfFameDisplay());
 
   $("#nameSubmit").on("click", function () {
     var name = document.querySelector('#nameForm').value;
@@ -258,24 +260,25 @@ $(document).ready(function () {
         }
         localStorage.setItem("score1", top5scores[0]);
         localStorage.setItem("name1", top5names[0]);
-        $("#rank1").text(top5names[0] + " " + top5scores[0]);
+        // $("#rank1").text(top5names[0] + " " + top5scores[0]);
 
         localStorage.setItem("score2", top5scores[1]);
         localStorage.setItem("name2", top5names[1]);
-        $("#rank2").text(top5names[1] + " " + top5scores[1]);
+        // $("#rank2").text(top5names[1] + " " + top5scores[1]);
 
         localStorage.setItem("score3", top5scores[2]);
         localStorage.setItem("name3", top5names[2]);
-        $("#rank3").text(top5names[2] + " " + top5scores[2]);
+        // $("#rank3").text(top5names[2] + " " + top5scores[2]);
 
         localStorage.setItem("score4", top5scores[3]);
         localStorage.setItem("name4", top5names[3]);
-        $("#rank4").text(top5names[3] + " " + top5scores[3]);
+        // $("#rank4").text(top5names[3] + " " + top5scores[3]);
 
         localStorage.setItem("score5", top5scores[4]);
         localStorage.setItem("name5", top5names[4]);
-        $("#rank5").text(top5names[4] + " " + top5scores[4]);
+        // $("#rank5").text(top5names[4] + " " + top5scores[4]);
 
+        hallOfFameDisplay();
 
         i = top5names.length;
       }
@@ -295,5 +298,13 @@ $(document).ready(function () {
     var newScore5 = localStorage.getItem("score5");
     var newName5 = localStorage.getItem("name5");
     console.log(newScore5 + " " + newName5);
+  }
+
+  function hallOfFameDisplay() {
+    $("#rank1").text(top5names[0] + " " + top5scores[0]);
+    $("#rank2").text(top5names[1] + " " + top5scores[1]);
+    $("#rank3").text(top5names[2] + " " + top5scores[2]);
+    $("#rank4").text(top5names[3] + " " + top5scores[3]);
+    $("#rank5").text(top5names[4] + " " + top5scores[4]);
   }
 })
