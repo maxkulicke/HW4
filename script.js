@@ -74,19 +74,39 @@ var hard3 = [hQuestion3, hAns3a, hAns3b, hAns3c, hAns3d];
 var hardQuiz = [hard1, hard2, hard3];
 
 // Top 5 Scores, local storage
+localStorage.setItem("rank1", "");
+localStorage.setItem("rank2", "");
+localStorage.setItem("rank3", "");
+localStorage.setItem("rank4", "");
+localStorage.setItem("rank5", "");
+
 var rank1 = localStorage.getItem("rank1");
 var rank2 = localStorage.getItem("rank2");
 var rank3 = localStorage.getItem("rank3");
 var rank4 = localStorage.getItem("rank4");
 var rank5 = localStorage.getItem("rank5");
-// localStorage.setItem("count", count);
-var top5 = [rank1, rank2, rank3, rank4, rank5];
+
+var top5ranks = [rank1, rank2, rank3, rank4, rank5];
+
+localStorage.setItem("name1", "");
+localStorage.setItem("name2", "");
+localStorage.setItem("name3", "");
+localStorage.setItem("name4", "");
+localStorage.setItem("name5", "");
+
+var name1 = localStorage.getItem("name1");
+var name2 = localStorage.getItem("name2");
+var name3 = localStorage.getItem("name3");
+var name4 = localStorage.getItem("name4");
+var name5 = localStorage.getItem("name5");
+
+var top5names = [name1, name2, name3, name4, name5];
 
 $(document).ready(function () {
 
   // important to declare globally, will be incremented/interacted with by multiple functions
   var index = 0;
-  score = 0;
+  var score = 0;
 
   $("#easy").on("click", function () {
     quizRunner(easyQuiz);
@@ -109,11 +129,11 @@ $(document).ready(function () {
 
     // timer section
     var secondsLeft = 10 * difficultyArray.length - 1;
-    var timerInterval = setInterval(function() {
+    var timerInterval = setInterval(function () {
       $("#timer").text(secondsLeft)
       secondsLeft--;
       score = secondsLeft;
-      if(secondsLeft === 0) {
+      if (secondsLeft === 0) {
         clearInterval(timerInterval);
       }
     }, 1000);
@@ -192,19 +212,58 @@ $(document).ready(function () {
   function scoreboard() {
     display("scoreboard");
     $(".answer").hide();
+    $("#goToHallOfFame").show();
     index = 0;
     console.log("scoreboard turned index into: " + index);
-    top5.forEach(function(rank) {
-      if (score > rank) {
-        hallOfFame(score);
-      }
-    });
+    // top5ranks.forEach(function (rank) {
+    //   if (score > rank) {
+    //     hallOfFame(score);
+    //   }
+    // });
   }
 
   function hallOfFame(score) {
     display("Hall of Fame");
+    for (var i = 0; i < top5ranks.length; i++) {
+      var currentScore = parseInt(top5ranks[i]);
+      if (score > currentScore) {
+        // score entry loop
+        var replacer = score;
+        for (var j = i; j < top5ranks.length; j++) {
+          replacee = top5ranks[j];
+          top5ranks[j] = replacer;
+          replacer = replacee;
+        }
+        localStorage.setItem("rank1", top5ranks[0]);
+        localStorage.setItem("rank2", top5ranks[1]);
+        localStorage.setItem("rank3", top5ranks[2]);
+        localStorage.setItem("rank4", top5ranks[3]);
+        localStorage.setItem("rank5", top5ranks[4]);
+      }
+    }
   }
-
-
-
 })
+
+    // function showDifficultyModal() {
+    //   $("#difficultyModal").show();
+    // }
+
+    // function hideDifficultyModal() {
+    //   $("#difficultyModal").hide();
+    // }
+
+    // function showQuestionModal() {
+    //   $("#questionModal").show();
+    // }
+
+    // function hideQuestionModal() {
+    //   $("#questionModal").hide();
+    // }
+
+    // function showHallOfFameModal() {
+    //   $("#hallOfFameModal").show();
+    // }
+
+    // function hideHallOfFameModal() {
+    //   $("#hallOfFameModal").hide();
+    // }
