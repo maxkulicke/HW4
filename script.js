@@ -23,14 +23,17 @@ $(document).ready(function () {
 
   $("#easy").on("click", function () {
     quizRunner(easyQuiz);
+    $("#difficultyModal").modal('hide')
   });
 
   $("#medium").on("click", function () {
     quizRunner(mediumQuiz);
+    $("#difficultyModal").modal('hide')
   });
 
   $("#hard").on("click", function () {
     quizRunner(hardQuiz);
+    $("#difficultyModal").modal('hide')
   });
 
   function quizRunner(difficultyArray) {
@@ -151,7 +154,10 @@ $(document).ready(function () {
     });
   }
 
-  $("#goToHallOfFame").on("click", hallOfFameDisplay());
+  $("#goToHallOfFame").on("click", function () {
+    hallOfFameDisplay();
+    $("#questionModal").modal('hide');
+  });
 
   $("#nameSubmit").on("click", function () {
     var name = document.querySelector('#nameForm').value;
@@ -159,66 +165,71 @@ $(document).ready(function () {
     hallOfFame(name);
   })
 
-  function hallOfFame(name) {
-    console.log("hallOfFame receiving name and score of: " + name + " " + score);
-    for (var i = 0; i < top5scores.length; i++) {
-      var oldScore = parseInt(top5scores[i]);
-      console.log("old score at index " + i + "is " + oldScore);
-      if (score > oldScore) {
-        // score entry loop
-        var scoreReplacer = score;
-        var nameReplacer = name;
-        for (var j = i; j < top5scores.length; j++) {
-          scoreReplacee = top5scores[j];
-          nameReplacee = top5names[j];
-          top5scores[j] = scoreReplacer;
-          top5names[j] = nameReplacer;
-          scoreReplacer = scoreReplacee;
-          nameReplacer = nameReplacee;
+  $("#playAgain").on("click", function () {
+    $("#difficultyModal").modal('show');
+    $("#hallOfFameModal").modal('hide');
+  });
+
+    function hallOfFame(name) {
+      console.log("hallOfFame receiving name and score of: " + name + " " + score);
+      for (var i = 0; i < top5scores.length; i++) {
+        var oldScore = parseInt(top5scores[i]);
+        console.log("old score at index " + i + "is " + oldScore);
+        if (score > oldScore) {
+          // score entry loop
+          var scoreReplacer = score;
+          var nameReplacer = name;
+          for (var j = i; j < top5scores.length; j++) {
+            scoreReplacee = top5scores[j];
+            nameReplacee = top5names[j];
+            top5scores[j] = scoreReplacer;
+            top5names[j] = nameReplacer;
+            scoreReplacer = scoreReplacee;
+            nameReplacer = nameReplacee;
+          }
+
+          localStorage.setItem("score1", top5scores[0]);
+          localStorage.setItem("name1", top5names[0]);
+
+          localStorage.setItem("score2", top5scores[1]);
+          localStorage.setItem("name2", top5names[1]);
+
+          localStorage.setItem("score3", top5scores[2]);
+          localStorage.setItem("name3", top5names[2]);
+
+          localStorage.setItem("score4", top5scores[3]);
+          localStorage.setItem("name4", top5names[3]);
+
+          localStorage.setItem("score5", top5scores[4]);
+          localStorage.setItem("name5", top5names[4]);
+
+          hallOfFameDisplay();
+
+          i = top5names.length;
         }
-
-        localStorage.setItem("score1", top5scores[0]);
-        localStorage.setItem("name1", top5names[0]);
-
-        localStorage.setItem("score2", top5scores[1]);
-        localStorage.setItem("name2", top5names[1]);
-
-        localStorage.setItem("score3", top5scores[2]);
-        localStorage.setItem("name3", top5names[2]);
-
-        localStorage.setItem("score4", top5scores[3]);
-        localStorage.setItem("name4", top5names[3]);
-
-        localStorage.setItem("score5", top5scores[4]);
-        localStorage.setItem("name5", top5names[4]);
-
-        hallOfFameDisplay();
-
-        i = top5names.length;
       }
+      var newScore1 = localStorage.getItem("score1");
+      var newName1 = localStorage.getItem("name1");
+      console.log(newScore1 + " " + newName1);
+      var newScore2 = localStorage.getItem("score2");
+      var newName2 = localStorage.getItem("name2");
+      console.log(newScore2 + " " + newName2);
+      var newScore3 = localStorage.getItem("score3");
+      var newName3 = localStorage.getItem("name3");
+      console.log(newScore3 + " " + newName3);
+      var newScore4 = localStorage.getItem("score4");
+      var newName4 = localStorage.getItem("name4");
+      console.log(newScore4 + " " + newName4);
+      var newScore5 = localStorage.getItem("score5");
+      var newName5 = localStorage.getItem("name5");
+      console.log(newScore5 + " " + newName5);
     }
-    var newScore1 = localStorage.getItem("score1");
-    var newName1 = localStorage.getItem("name1");
-    console.log(newScore1 + " " + newName1);
-    var newScore2 = localStorage.getItem("score2");
-    var newName2 = localStorage.getItem("name2");
-    console.log(newScore2 + " " + newName2);
-    var newScore3 = localStorage.getItem("score3");
-    var newName3 = localStorage.getItem("name3");
-    console.log(newScore3 + " " + newName3);
-    var newScore4 = localStorage.getItem("score4");
-    var newName4 = localStorage.getItem("name4");
-    console.log(newScore4 + " " + newName4);
-    var newScore5 = localStorage.getItem("score5");
-    var newName5 = localStorage.getItem("name5");
-    console.log(newScore5 + " " + newName5);
-  }
 
-  function hallOfFameDisplay() {
-    $("#rank1").text(top5names[0] + " " + top5scores[0]);
-    $("#rank2").text(top5names[1] + " " + top5scores[1]);
-    $("#rank3").text(top5names[2] + " " + top5scores[2]);
-    $("#rank4").text(top5names[3] + " " + top5scores[3]);
-    $("#rank5").text(top5names[4] + " " + top5scores[4]);
-  }
-})
+    function hallOfFameDisplay() {
+      $("#rank1").text(top5names[0] + " " + top5scores[0]);
+      $("#rank2").text(top5names[1] + " " + top5scores[1]);
+      $("#rank3").text(top5names[2] + " " + top5scores[2]);
+      $("#rank4").text(top5names[3] + " " + top5scores[3]);
+      $("#rank5").text(top5names[4] + " " + top5scores[4]);
+    }
+  })
