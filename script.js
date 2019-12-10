@@ -208,21 +208,21 @@ $(document).ready(function () {
           i = top5names.length;
         }
       }
-      var newScore1 = localStorage.getItem("score1");
-      var newName1 = localStorage.getItem("name1");
-      console.log(newScore1 + " " + newName1);
-      var newScore2 = localStorage.getItem("score2");
-      var newName2 = localStorage.getItem("name2");
-      console.log(newScore2 + " " + newName2);
-      var newScore3 = localStorage.getItem("score3");
-      var newName3 = localStorage.getItem("name3");
-      console.log(newScore3 + " " + newName3);
-      var newScore4 = localStorage.getItem("score4");
-      var newName4 = localStorage.getItem("name4");
-      console.log(newScore4 + " " + newName4);
-      var newScore5 = localStorage.getItem("score5");
-      var newName5 = localStorage.getItem("name5");
-      console.log(newScore5 + " " + newName5);
+      // var newScore1 = localStorage.getItem("score1");
+      // var newName1 = localStorage.getItem("name1");
+      // console.log(newScore1 + " " + newName1);
+      // var newScore2 = localStorage.getItem("score2");
+      // var newName2 = localStorage.getItem("name2");
+      // console.log(newScore2 + " " + newName2);
+      // var newScore3 = localStorage.getItem("score3");
+      // var newName3 = localStorage.getItem("name3");
+      // console.log(newScore3 + " " + newName3);
+      // var newScore4 = localStorage.getItem("score4");
+      // var newName4 = localStorage.getItem("name4");
+      // console.log(newScore4 + " " + newName4);
+      // var newScore5 = localStorage.getItem("score5");
+      // var newName5 = localStorage.getItem("name5");
+      // console.log(newScore5 + " " + newName5);
     }
 
     function hallOfFameDisplay() {
