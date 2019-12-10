@@ -40,21 +40,21 @@ var mAns2d = { answer: "Major 3rd, Minor 3rd", correct: "true", };
 var medium2 = [mQuestion2, mAns2a, mAns2b, mAns2c, mAns2d];
 
 var mQuestion3 = { question: "What scale degree of the major scale is referred to as the relative minor?" };
-var mAns3a = { answer: "V", correct: "false", };
-var mAns3b = { answer: "vi", correct: "true", };
-var mAns3c = { answer: "IV", correct: "false", };
-var mAns3d = { answer: "ii", correct: "false", };
+var mAns3a = { answer: "5", correct: "false", };
+var mAns3b = { answer: "6", correct: "true", };
+var mAns3c = { answer: "4", correct: "false", };
+var mAns3d = { answer: "2", correct: "false", };
 var medium3 = [mQuestion3, mAns3a, mAns3b, mAns3c, mAns3d];
 
 var mediumQuiz = [medium1, medium2, medium3];
 
 // HARD
 // will be array of hard question objects
-var hQuestion1 = { question: "Which scale degree gets raised a half step from to make an augmented triad?" }
-var hAns1a = { answer: "i", correct: "false", };
-var hAns1b = { answer: "iii", correct: "false", };
-var hAns1c = { answer: "v", correct: "true", };
-var hAns1d = { answer: "vii", correct: "false", };
+var hQuestion1 = { question: "Which scale degree gets raised a half step to make an augmented triad?" }
+var hAns1a = { answer: "1", correct: "false", };
+var hAns1b = { answer: "3", correct: "false", };
+var hAns1c = { answer: "5", correct: "true", };
+var hAns1d = { answer: "7", correct: "false", };
 var hard1 = [hQuestion1, hAns1a, hAns1b, hAns1c, hAns1d];
 
 var hQuestion2 = { question: "An instance of a dominant V chord in a minor key creates what sort of minor scale?" }

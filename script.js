@@ -37,6 +37,7 @@ $(document).ready(function () {
   });
 
   function quizRunner(difficultyArray) {
+    $(".answer").off("click");
     console.log("index at top of quizRunner is: " + index);
     // these three are mostly for restarts of quiz runner
     $("#timer").text("Time Remaining");
@@ -160,8 +161,10 @@ $(document).ready(function () {
   });
 
   $("#nameSubmit").on("click", function () {
-    var name = document.querySelector('#nameForm').value;
-    console.log("nameSubmit button sending name: " + name);
+    // var name = document.querySelector('#nameForm').value;
+    var name = $("#nameForm").val();
+    // console.log("jQueryName is: " + jQueryName);
+    // console.log("nameSubmit button sending name: " + name);
     hallOfFame(name);
   })
 
@@ -171,10 +174,10 @@ $(document).ready(function () {
   });
 
     function hallOfFame(name) {
-      console.log("hallOfFame receiving name and score of: " + name + " " + score);
+      // console.log("hallOfFame receiving name and score of: " + name + " " + score);
       for (var i = 0; i < top5scores.length; i++) {
         var oldScore = parseInt(top5scores[i]);
-        console.log("old score at index " + i + "is " + oldScore);
+        // console.log("old score at index " + i + "is " + oldScore);
         if (score > oldScore) {
           // score entry loop
           var scoreReplacer = score;
