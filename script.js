@@ -117,6 +117,8 @@ $(document).ready(function () {
       $("#goToHallOfFame").show();
     }
     else {
+      $("#question").show();
+      $(".answer").show();
       $("#question").text(question[0].question);
       $("#1").text(question[1].answer);
       $("#2").text(question[2].answer);
@@ -150,15 +152,20 @@ $(document).ready(function () {
   }
 
   function checkForHighScore(score) {
+    var newHighScore = false;
     top5scores.forEach(function (oldScore) {
       if (score > oldScore) {
-        return true;
+        newHighScore = true;
       }
     });
+    return newHighScore;
   }
 
   // only allows name entry to hall of fame if new high score
   $("#goToHallOfFame").on("click", function () {
+    // console.log(score);
+    // var newHighScore = checkForHighScore(score);
+    // console.log(newHighScore);
     if (checkForHighScore(score)) {
       $("#enterName").show();
       $("#nameForm").show();
