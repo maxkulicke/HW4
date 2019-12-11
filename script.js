@@ -157,7 +157,18 @@ $(document).ready(function () {
     });
   }
 
+  // only allows name entry to hall of fame if new high score
   $("#goToHallOfFame").on("click", function () {
+    if (checkForHighScore(score)) {
+      $("#enterName").show();
+      $("#nameForm").show();
+      $("#nameSubmit").show();
+    }
+    else {
+      $("#enterName").hide();
+      $("#nameForm").hide();
+      $("#nameSubmit").hide();
+    }
     hallOfFameDisplay();
     $("#questionModal").modal('hide');
   });
