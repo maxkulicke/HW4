@@ -17,6 +17,7 @@ var top5names = [name1, name2, name3, name4, name5];
 
 $(document).ready(function () {
 
+  // CONSIDER: implementing some "this" for targeting elements
   // important to declare globally, will be incremented/interacted with by multiple functions
   var index = 0;
   var score = 0;
@@ -38,14 +39,14 @@ $(document).ready(function () {
 
   function quizRunner(difficultyArray) {
     $(".answer").off("click");
-    console.log("index at top of quizRunner is: " + index);
+    // console.log("index at top of quizRunner is: " + index);
     // these three are mostly for restarts of quiz runner
     $("#timer").text("Time Remaining");
     $("#timer").show();
     $(".answer").show();
 
     // timer section
-    var secondsLeft = 10 * difficultyArray.length - 1;
+    var secondsLeft = 15 * difficultyArray.length - 1;
     var timerInterval = setInterval(function () {
       $("#timer").text(secondsLeft)
       secondsLeft--;
@@ -59,13 +60,14 @@ $(document).ready(function () {
     var currentQuestion = difficultyArray[index];
     questionThrower(currentQuestion);
     var currentQuestionText = currentQuestion[0].question; // tracer variable, delete later
-    console.log("question being thrown TO questionThrower is: " + currentQuestionText);
+    // console.log("question being thrown TO questionThrower is: " + currentQuestionText);
     $(".answer").on("click", function () {
-      console.log("CLICK!");
+      // console.log("CLICK!");
+      // could following line use "this"?
       var answerId = event.target.id;
-      console.log("answer ID according to onClick is: " + answerId);
+      // console.log("answer ID according to onClick is: " + answerId);
       var correct = checkAnswer(currentQuestion[answerId]);
-      console.log("correct returned to quizRunner is: " + correct);
+      // console.log("correct returned to quizRunner is: " + correct);
       if (correct === "true") {
         score++;
       } else {
@@ -73,13 +75,13 @@ $(document).ready(function () {
         score = secondsLeft;
       }
       index++;
-      console.log("index after first question thrown (still within quizRunner) is: " + index);
+      // console.log("index after first question thrown (still within quizRunner) is: " + index);
 
       // end of quiz section
       if (index < difficultyArray.length) {
         currentQuestion = difficultyArray[index];
         currentQuestionText = currentQuestion[0].question; //tracer variable, delete later
-        console.log("question being thrown TO questionThrower is: " + currentQuestionText);
+        // console.log("question being thrown TO questionThrower is: " + currentQuestionText);
         questionThrower(currentQuestion);
       }
       else {
@@ -125,8 +127,8 @@ $(document).ready(function () {
 
   function checkAnswer(answer) {
     var correct = answer.correct;
-    console.log("answer that checkAnswer is checking is: " + answer.answer);
-    console.log("checkAnswer says answer is: " + correct);
+    // console.log("answer that checkAnswer is checking is: " + answer.answer);
+    // console.log("checkAnswer says answer is: " + correct);
     return correct;
   }
 
@@ -141,7 +143,7 @@ $(document).ready(function () {
     $(".answer").hide(); //redundant? see display()
     $("#goToHallOfFame").show();
     index = 0;
-    console.log("scoreboard turned index into: " + index);
+    // console.log("scoreboard turned index into: " + index);
     if (checkForHighScore(score)) {
       display("Hall of Fame");
     }
@@ -170,6 +172,10 @@ $(document).ready(function () {
 
   $("#playAgain").on("click", function () {
     $("#difficultyModal").modal('show');
+    $("#hallOfFameModal").modal('hide');
+  });
+
+  $("#home").on("click", function () {
     $("#hallOfFameModal").modal('hide');
   });
 
