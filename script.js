@@ -246,10 +246,20 @@ $(document).ready(function () {
     }
 
     function hallOfFameDisplay() {
-      $("#rank1").text(top5names[0] + " " + top5scores[0]);
-      $("#rank2").text(top5names[1] + " " + top5scores[1]);
-      $("#rank3").text(top5names[2] + " " + top5scores[2]);
-      $("#rank4").text(top5names[3] + " " + top5scores[3]);
-      $("#rank5").text(top5names[4] + " " + top5scores[4]);
+      $("#rank1name").text(top5names[0]);
+      $("#rank1score").text(top5scores[0]);
+
+      $("#rank2name").text(top5names[1]);
+      $("#rank2score").text(top5scores[1]);
+
+      $("#rank3name").text(top5names[2]);
+      $("#rank3score").text(top5scores[2]);
+
+      $("#rank4name").text(top5names[3]);
+      $("#rank4score").text(top5scores[3]);
+
+      $("#rank5name").text(top5names[4]);
+      $("#rank5score").text(top5scores[4]);
+
     }
   })
