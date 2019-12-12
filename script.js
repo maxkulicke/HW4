@@ -166,6 +166,14 @@ $(document).ready(function () {
     $("#questionModal").modal('hide');
   });
 
+  // this function to be added back if the home hall of fame button reinstalled
+  // $("#homeHallOfFameButton").on("click", function () {
+  //   $("#enterName").hide();
+  //   $("#nameForm").hide();
+  //   $("#nameSubmit").hide();
+  //   hallOfFameDisplay();
+  // })
+
   $("#nameSubmit").on("click", function () {
     var name = $("#nameForm").val();
     hallOfFame(name);
@@ -232,6 +240,26 @@ $(document).ready(function () {
       }
     }
   }
+
+  $("#clear").on("click", function () {
+    if (difficulty === "easy") {
+      top5scores = easyTop5Scores;
+      top5names = easyTop5Names;
+    }
+    else if (difficulty === "medium") {
+      top5scores = mediumTop5Scores;
+      top5names = mediumTop5Names;
+    }
+    else if (difficulty === "hard") {
+      top5scores = hardTop5Scores;
+      top5names = hardTop5Names;
+    }
+    for (var i = 0; i < top5scores.length; i++) {
+      top5scores[i] = "";
+      top5names[i] = "";
+    }
+    hallOfFameDisplay();
+  })
 
   // could this be a for loop?
   function hallOfFameDisplay() {
