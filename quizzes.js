@@ -21,7 +21,14 @@ var eAns3c = { answer: "v", correct: "false", };
 var eAns3d = { answer: "i", correct: "false", };
 var easy3 = [eQuestion3, eAns3a, eAns3b, eAns3c, eAns3d];
 
-var easyQuiz = [easy1, easy2, easy3];
+var eQuestion4 = { question: "How many notes are in a major scale?" };
+var eAns4a = { answer: "8", correct: "false", };
+var eAns4b = { answer: "5", correct: "false", };
+var eAns4c = { answer: "6", correct: "false", };
+var eAns4d = { answer: "7", correct: "true", };
+var easy4 = [eQuestion4, eAns4a, eAns4b, eAns4c, eAns4d];
+
+var easyQuiz = [easy1, easy2, easy3, easy4];
 
 // MEDIUM
 // will be array of medium question objects
@@ -46,7 +53,14 @@ var mAns3c = { answer: "4", correct: "false", };
 var mAns3d = { answer: "2", correct: "false", };
 var medium3 = [mQuestion3, mAns3a, mAns3b, mAns3c, mAns3d];
 
-var mediumQuiz = [medium1, medium2, medium3];
+var mQuestion4 = { question: "What mode is also known as the major scale?" };
+var mAns4a = { answer: "Dorian", correct: "false", };
+var mAns4b = { answer: "Locrian", correct: "false", };
+var mAns4c = { answer: "Ionian", correct: "true", };
+var mAns4d = { answer: "Mixolydian", correct: "false", };
+var medium4 = [mQuestion4, mAns4a, mAns4b, mAns4c, mAns4d];
+
+var mediumQuiz = [medium1, medium2, medium3, medium4];
 
 // HARD
 // will be array of hard question objects
@@ -71,4 +85,11 @@ var hAns3c = { answer: "Mixolydian", correct: "false", };
 var hAns3d = { answer: "Pentatonic", correct: "false", };
 var hard3 = [hQuestion3, hAns3a, hAns3b, hAns3c, hAns3d];
 
-var hardQuiz = [hard1, hard2, hard3];
+var hQuestion4 = { question: "What type of seventh chord is built upon the major scale degree 7?" }
+var hAns4a = { answer: "Major 7", correct: "false", };
+var hAns4b = { answer: "Minor 7", correct: "false", };
+var hAns4c = { answer: "Minor 7 flat 5", correct: "true", };
+var hAns4d = { answer: "Dominant", correct: "false", };
+var hard4 = [hQuestion4, hAns4a, hAns4b, hAns4c, hAns4d];
+
+var hardQuiz = [hard1, hard2, hard3, hard4];
