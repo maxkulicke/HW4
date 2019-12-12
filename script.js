@@ -5,6 +5,7 @@ $(document).ready(function () {
   var score = 0;
   var difficulty = "";
 
+  // following onClicks select difficulty level
   $("#easy").on("click", function () {
     difficulty = "easy";
     quizRunner(easyQuiz);
@@ -23,6 +24,7 @@ $(document).ready(function () {
     $("#difficultyModal").modal('hide')
   });
 
+  // quizRunner runs the show
   function quizRunner(difficultyArray) {
     $(".answer").off("click");
     $("#timer").text("Time Remaining");
@@ -54,10 +56,10 @@ $(document).ready(function () {
         }, 1000);
       } else {
         $("#questionCard").toggleClass("incorrect");
+        secondsLeft = decrement(secondsLeft);
+        score = secondsLeft;
         setTimeout(function () {
           $("#questionCard").toggleClass("incorrect");
-          secondsLeft = decrement(secondsLeft);
-          score = secondsLeft;
         }, 1000);
       }
       index++;
@@ -114,7 +116,7 @@ $(document).ready(function () {
   }
 
   function decrement(secondsLeft) {
-    secondsLeft -= 5;
+    secondsLeft -= 10;
     return secondsLeft;
   }
 
@@ -177,6 +179,9 @@ $(document).ready(function () {
   $("#nameSubmit").on("click", function () {
     var name = $("#nameForm").val();
     hallOfFame(name);
+    $("#enterName").hide();
+    $("#nameForm").hide();
+    $("#nameSubmit").hide();
   })
 
   $("#playAgain").on("click", function () {
