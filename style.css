@@ -5,3 +5,10 @@
 .incorrect {
   background-color: rgba(180, 1, 1, 0.377);
 }
+
+#quizBody {
+  background-image: url("assets/images/jazzBoys.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
