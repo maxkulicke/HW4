@@ -263,6 +263,21 @@ $(document).ready(function () {
       top5scores[i] = "";
       top5names[i] = "";
     }
+    localStorage.setItem(difficulty + "Score1", top5scores[0]);
+    localStorage.setItem(difficulty + "Name1", top5names[0]);
+
+    localStorage.setItem(difficulty + "Score2", top5scores[1]);
+    localStorage.setItem(difficulty + "Name2", top5names[1]);
+
+    localStorage.setItem(difficulty + "Score3", top5scores[2]);
+    localStorage.setItem(difficulty + "Name3", top5names[2]);
+
+    localStorage.setItem(difficulty + "Score4", top5scores[3]);
+    localStorage.setItem(difficulty + "Name4", top5names[3]);
+
+    localStorage.setItem(difficulty + "Score5", top5scores[4]);
+    localStorage.setItem(difficulty + "Name5", top5names[4]);
+    
     hallOfFameDisplay();
   })
 
