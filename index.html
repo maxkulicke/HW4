@@ -33,7 +33,7 @@
         <div class="card">
           <div class="card-body">
             <!-- align button center -->
-            <button type="button" class="btn btn-info" id="quiz" data-toggle="modal" data-target="#difficultyModal">Take
+            <button type="button" class="btn btn-dark" id="quiz" data-toggle="modal" data-target="#difficultyModal">Take
               the
               Quiz!</button>
           </div>
@@ -55,11 +55,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <button type="button" class="btn btn-info" id="easy" data-toggle="modal"
+          <button type="button" class="btn btn-dark" id="easy" data-toggle="modal"
             data-target="#questionModal">Easy</button>
-          <button type="button" class="btn btn-info" id="medium" data-toggle="modal"
+          <button type="button" class="btn btn-dark" id="medium" data-toggle="modal"
             data-target="#questionModal">Medium</button>
-          <button type="button" class="btn btn-info" id="hard" data-toggle="modal"
+          <button type="button" class="btn btn-dark" id="hard" data-toggle="modal"
             data-target="#questionModal">Hard</button>
         </div>
         <div class="modal-footer">
@@ -73,15 +73,15 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="card float-none">
-          <div class="card-body">
+          <div class="card-body" id="questionCard">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h5 class="card-title" id="timer">Time Remaining!</h5>
             <h6 class="card-subtitle mb-2 text-muted" id="question"></h6>
-            <p><button type="button" class="btn btn-info answer" id="1"></button></p>
-            <p><button type="button" class="btn btn-info answer" id="2"></button></p>
-            <p><button type="button" class="btn btn-info answer" id="3"></button></p>
-            <p><button type="button" class="btn btn-info answer" id="4"></button></p>
-            <p><button type="button" class="btn btn-info" id="goToHallOfFame" data-toggle="modal"
+            <p><button type="button" class="btn btn-dark answer" id="1"></button></p>
+            <p><button type="button" class="btn btn-dark answer" id="2"></button></p>
+            <p><button type="button" class="btn btn-dark answer" id="3"></button></p>
+            <p><button type="button" class="btn btn-dark answer" id="4"></button></p>
+            <p><button type="button" class="btn btn-dark" id="goToHallOfFame" data-toggle="modal"
                 data-target="#hallOfFameModal">Go to the Hall of Fame!</button></p>
           </div>
         </div>
@@ -131,14 +131,14 @@
             <div class="form-group">
               <input type="name" class="form-control" id="nameForm" placeholder="Your Name">
             </div>
-            <button type="submit" class="btn btn-info" id="nameSubmit">Submit</button>
+            <button type="submit" class="btn btn-dark" id="nameSubmit">Submit</button>
             <br>
             <br>
             <br>
             <!-- nav to home button -->
-            <button type="submit" class="btn btn-info" id="home" onclick>Home</button>
+            <button type="submit" class="btn btn-dark" id="home" onclick>Home</button>
             <!-- back to difficulty modal button -->
-            <button type="submit" class="btn btn-info" id="playAgain">Play Again!</button>
+            <button type="submit" class="btn btn-dark" id="playAgain">Play Again!</button>
           </div>
         </div>
       </div>
