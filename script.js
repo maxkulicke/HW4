@@ -120,7 +120,7 @@ $(document).ready(function () {
 
   function scoreboard() {
     display("scoreboard");
-    $(".answer").hide(); //redundant? see display()
+    $(".answer").hide();
     $("#goToHallOfFame").show();
     index = 0;
     if (checkForHighScore(score)) {
@@ -221,7 +221,7 @@ $(document).ready(function () {
           nameReplacer = nameReplacee;
         }
 
-        // could this be a for loop?
+        // this should be a for loop?
         localStorage.setItem(difficulty + "Score1", top5scores[0]);
         localStorage.setItem(difficulty + "Name1", top5names[0]);
 
@@ -279,7 +279,6 @@ $(document).ready(function () {
     hallOfFameDisplay();
   })
 
-  // could this be a for loop?
   function hallOfFameDisplay() {
     if (difficulty === "easy") {
       top5scores = easyTop5Scores;
