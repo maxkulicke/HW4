@@ -64,7 +64,6 @@ $(document).ready(function () {
       }
       index++;
 
-      // insert delay here?
       // end of quiz section
       if (index < difficultyArray.length) {
         setTimeout(function () {
@@ -92,8 +91,7 @@ $(document).ready(function () {
       $("#question").text("Your Score is: " + score);
     }
     else if (question === "Hall of Fame") {
-      // hallOfFameDisplay();
-      $("#question").hide();
+      $("#question").text("Your Score is: " + score);
       $(".answer").hide();
       $("#timer").show();
       $("#timer").text("Congratulations! Welcome to the Hall of Fame!");
@@ -277,7 +275,7 @@ $(document).ready(function () {
 
     localStorage.setItem(difficulty + "Score5", top5scores[4]);
     localStorage.setItem(difficulty + "Name5", top5names[4]);
-    
+
     hallOfFameDisplay();
   })
 
@@ -296,6 +294,8 @@ $(document).ready(function () {
       top5names = hardTop5Names;
     }
 
+    $("#hallOfFameScoreDisplay").text("Your Score is: " + score);
+    // this should be a for loop
     $("#rank1name").text(top5names[0]);
     $("#rank1score").text(top5scores[0]);
 
