@@ -1,3 +1,8 @@
+.hallOfFameColumn {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .correct {
   background-color: rgba(11, 92, 11, 0.418);
 }
