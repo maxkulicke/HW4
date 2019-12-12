@@ -17,3 +17,14 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+#quiz {
+  position: absolute;
+  top: 10rem;
+  width: 140px; 
+  height: 140px; 
+  border-radius: 70px; 
+  font-size: 30px; 
+  text-align: center; 
+  border-width: 0px;
+}
