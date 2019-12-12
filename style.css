@@ -28,3 +28,8 @@
   text-align: center; 
   border-width: 0px;
 }
+
+.modal-dialog {
+  top: 4rem;
+  bottom: auto;
+}  
