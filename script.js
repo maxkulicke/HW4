@@ -37,7 +37,8 @@ $(document).ready(function () {
       $("#timer").text(secondsLeft)
       secondsLeft--;
       score = secondsLeft;
-      if (secondsLeft === 0) {
+      if (secondsLeft == 0) {
+        display("Hall of Fame")
         clearInterval(timerInterval);
       }
     }, 1000);

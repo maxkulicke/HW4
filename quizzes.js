@@ -35,7 +35,6 @@ var eAns5c = { answer: "Whole", correct: "false", };
 var eAns5d = { answer: "Eighth", correct: "false", };
 var easy5 = [eQuestion5, eAns5a, eAns5b, eAns5c, eAns5d];
 
-// question 6: what are the three notes of G major?
 var eQuestion6 = { question: "What are the three notes of G major?" };
 var eAns6a = { answer: "G, Bb, D", correct: "", };
 var eAns6b = { answer: "G, B, Db", correct: "false", };
@@ -44,6 +43,7 @@ var eAns6d = { answer: "G, Bb, DB", correct: "false", };
 var easy6 = [eQuestion6, eAns6a, eAns6b, eAns6c, eAns6d];
 
 var easyQuiz = [easy1, easy2, easy3, easy4, easy5, easy6];
+
 
 // MEDIUM
 // will be array of medium question objects
