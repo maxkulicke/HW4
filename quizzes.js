@@ -28,7 +28,22 @@ var eAns4c = { answer: "6", correct: "false", };
 var eAns4d = { answer: "7", correct: "true", };
 var easy4 = [eQuestion4, eAns4a, eAns4b, eAns4c, eAns4d];
 
-var easyQuiz = [easy1, easy2, easy3, easy4];
+var eQuestion5 = { question: "What kind of note gets the beat in a measure of 4/4 time?" };
+var eAns5a = { answer: "Quarter", correct: "true", };
+var eAns5b = { answer: "Half", correct: "false", };
+var eAns5c = { answer: "Whole", correct: "false", };
+var eAns5d = { answer: "Eighth", correct: "false", };
+var easy5 = [eQuestion5, eAns5a, eAns5b, eAns5c, eAns5d];
+
+// question 6: what are the three notes of G major?
+var eQuestion6 = { question: "What are the three notes of G major?" };
+var eAns6a = { answer: "G, Bb, D", correct: "", };
+var eAns6b = { answer: "G, B, Db", correct: "false", };
+var eAns6c = { answer: "G, B, D", correct: "true", };
+var eAns6d = { answer: "G, Bb, DB", correct: "false", };
+var easy6 = [eQuestion6, eAns6a, eAns6b, eAns6c, eAns6d];
+
+var easyQuiz = [easy1, easy2, easy3, easy4, easy5, easy6];
 
 // MEDIUM
 // will be array of medium question objects
@@ -60,7 +75,22 @@ var mAns4c = { answer: "Ionian", correct: "true", };
 var mAns4d = { answer: "Mixolydian", correct: "false", };
 var medium4 = [mQuestion4, mAns4a, mAns4b, mAns4c, mAns4d];
 
-var mediumQuiz = [medium1, medium2, medium3, medium4];
+var mQuestion5 = { question: "What is the name of the cadence V7 -> vi?" };
+var mAns5a = { answer: "Plagal", correct: "false", };
+var mAns5b = { answer: "Major", correct: "false", };
+var mAns5c = { answer: "Phrygian", correct: "false", };
+var mAns5d = { answer: "Deceptive", correct: "true", };
+var medium5 = [mQuestion5, mAns5a, mAns5b, mAns5c, mAns5d];
+
+var mQuestion6 = { question: "What are the 4 notes of Bb maj7?" };
+var mAns6a = { answer: "B, D, F, A", correct: "false", };
+var mAns6b = { answer: "Bb, D, Fb, A", correct: "false", };
+var mAns6c = { answer: "Bb, D, F, Ab", correct: "false", };
+var mAns6d = { answer: "Bb, D, F, A", correct: "true", };
+var medium6 = [mQuestion6, mAns6a, mAns6b, mAns6c, mAns6d];
+
+var mediumQuiz = [medium1, medium2, medium3, medium4, medium5, medium6];
+
 
 // HARD
 // will be array of hard question objects
@@ -92,4 +122,18 @@ var hAns4c = { answer: "Minor 7 flat 5", correct: "true", };
 var hAns4d = { answer: "Dominant", correct: "false", };
 var hard4 = [hQuestion4, hAns4a, hAns4b, hAns4c, hAns4d];
 
-var hardQuiz = [hard1, hard2, hard3, hard4];
+var hQuestion5 = { question: "What kind of chord is made up of stacked minor third intervals?" }
+var hAns5a = { answer: "Minor", correct: "false", };
+var hAns5b = { answer: "Diminished 7th", correct: "true", };
+var hAns5c = { answer: "Major 7", correct: "false", };
+var hAns5d = { answer: "Minor 7", correct: "false", };
+var hard5 = [hQuestion5, hAns5a, hAns5b, hAns5c, hAns5d];
+
+var hQuestion6 = { question: "In a minor ii V i progression, what variety of 9 would you have on the V chord?" }
+var hAns6a = { answer: "Normal", correct: "false", };
+var hAns6b = { answer: "Raised", correct: "false", };
+var hAns6c = { answer: "Augmented", correct: "false", };
+var hAns6d = { answer: "Flat", correct: "true", };
+var hard6 = [hQuestion6, hAns6a, hAns6b, hAns6c, hAns6d];
+
+var hardQuiz = [hard1, hard2, hard3, hard4, hard5, hard6];
