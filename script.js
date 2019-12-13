@@ -132,6 +132,7 @@ $(document).ready(function () {
 
   // TODO
   // have the following three functions pass each other the arrays instead of the conditionals repeating
+  // tried above passes, didn't quite get it right...
   function checkForHighScore(score) {
     if (difficulty === "easy") {
       top5scores = easyTop5Scores;
@@ -222,7 +223,7 @@ $(document).ready(function () {
           nameReplacer = nameReplacee;
         }
 
-        // this should be a for loop?
+        // this should be a for loop
         localStorage.setItem(difficulty + "Score1", top5scores[0]);
         localStorage.setItem(difficulty + "Name1", top5names[0]);
 
@@ -276,11 +277,6 @@ $(document).ready(function () {
 
     localStorage.setItem(difficulty + "Score5", top5scores[4]);
     localStorage.setItem(difficulty + "Name5", top5names[4]);
-
-    // comment out later
-    for (var i = 0; i < top5names.length; i++) {
-      console.log(top5names[i], top5scores[i]);
-    }
 
     hallOfFameDisplay();
   })
