@@ -8,11 +8,13 @@ The focus of this assignment for me was about dynamic web interaction, especiall
 I feel like, given more time, I would spend more time styling the front end, but overall i'm quite happy with the functionality of the back end.
 
 A few notes:
-there is some local storage writing in script.js that is very WET, and with more time I would write some for loops to DRY that stuff out.
+there is some local storage writing in script.js that is very WET, and with more time I would write some for loops to DRY that stuff out. In general, I can do a better job with DRY writing, and i'm working on it actively.
 
 additionally, there is some error occurring under edge cases that involves the clear high scores button/function, where certain high scores in the hall of fame get displayed as "Null." I am still trying to work that out.
 
 I think there is also a slight lag (almost 2 seconds?!?) between the internal setInterval timer and the timer displayed on the modal. With more time I would like to crack that issue.
+
+Also, did not know that you could string together jQuery classes, ID's etc. I could really consolidate some of my script.js in retrospect....
 
 I intentionally did my question storage in a different format/structure as the assignment suggested. It works.
 
